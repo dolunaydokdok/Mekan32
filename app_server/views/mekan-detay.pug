@@ -21,14 +21,14 @@ block content
                 if(saat.kapali)
                  | Kapalı
                 else
-                 | #{saat.acilis}-#{saat.kapanis}
+                 |#{saat.acilis}-#{saat.kapanis}
         .panel.panel-primary
          .panel-heading
             h2.panel-title Neler Var
          .panel-body
             each imkan in mekanBilgisi.imkanlar
              span.label.label-warning
-                span.glyphicom.glyphicon-ok
+                span.glyphicon.glypicon-ok
                 | &nbsp; #{imkan}
              | &nbsp;
 
@@ -37,8 +37,8 @@ block content
         .panel-heading
             h2.panel-title Konum Bilgisi
         .panel-body
-            -var enlem=mekanBilgisi.koordinatlar.enlem
-              -var boylam=mekanBilgisi.koordinatlar.boylam
+            -var enlem=37.781406
+              -var boylam=30.565119
               img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center='
               +enlem+','+boylam+'&zoom=12&size=600x400&markers='+enlem+','+boylam+'&key=AIzaSyCmmKygTpBzHGOZEciJpAdxC9v_tWHagnE')
  .row
@@ -51,11 +51,11 @@ block content
        each yorum in mekanBilgisi.yorumlar
         .row
          .review
-          .well.well-sm.review-header
-            span.raiting
-             +puanOlustur(yorum.puan)
-            span.reviewAuthor=yorum.yorumYapan
-            | &nbsp;
-            small.reviewTimestamp=yorum.tarih
-          .col-xs-12
-             p=yorum.yorumMetni           
+           .well.well-sm.review-header
+             span.rating
+              +puanOlustur(yorum.puan)
+             span.reviewAuthor=yorum.yorumYapan
+             | &nbsp;
+             small.reviewTimestamp=yorum.tarih
+           .col-xs-12
+              p=yorum.yorumMetni
