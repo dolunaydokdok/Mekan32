@@ -9,7 +9,7 @@
    	'sayfaBaslik':{
    		
    		'siteAd':'Mekan32',
-   		'aciklama':'Isparta civarındaki mekanları keşfedin!'
+   		'aciklama':'Isparta civarındaki mekanları keşfet!'
    	},
    	'mekanlar':[
    	{
