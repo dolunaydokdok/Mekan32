@@ -6,6 +6,7 @@ const anaSayfa = function (req, res, next) {
 	res.render('mekanlar-liste',
 		{
 			'baslik': 'Anasayfa',
+			'footer': 'Dolunay Dökdök 2020',
 			'sayfaBaslik': {
 
 				'siteAd': 'Mekan32',
@@ -63,6 +64,7 @@ const mekanBilgisi = function (req, res, next) {
 
 		'baslik': 'Mekan Bigisi',
 		'sayfaBaslik': 'Starbucks',
+		'footer': 'Dolunay Dökdök 2020',
 		'mekanBilgisi': {
 			'ad': 'Starbucks',
 			'adres': 'Centrum Garden AVM',
@@ -107,11 +109,6 @@ const mekanBilgisi = function (req, res, next) {
 const yorumEkle = function (req, res, next) {
 	res.render('yorum-ekle', { title: 'Yorum Ekle', 'footer': 'Dolunay Dökdök 2020' });
 }
-
-
-
-
-
 
 module.exports = {
 	anaSayfa,
