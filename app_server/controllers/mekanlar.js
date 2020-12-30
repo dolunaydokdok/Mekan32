@@ -5,7 +5,7 @@
 const anaSayfa = function (req, res, next) {
 	res.render('mekanlar-liste',
 		{
-			'baslik': 'Anasayfa',
+			'title': 'Anasayfa',
 			'footer': 'Dolunay Dökdök 2020',
 			'sayfaBaslik': {
 
@@ -62,7 +62,7 @@ const anaSayfa = function (req, res, next) {
 const mekanBilgisi = function (req, res, next) {
 	res.render('mekan-detay', {
 
-		'baslik': 'Mekan Bigisi',
+		'title': 'Mekan Bigisi',
 		'sayfaBaslik': 'Starbucks',
 		'footer': 'Dolunay Dökdök 2020',
 		'mekanBilgisi': {

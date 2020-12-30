@@ -15,7 +15,7 @@ mongoose.connection.on('error', function (err) {
 
 //Bağlantı kesildiğinde konsola kesilme bilgisini yazdır.
 mongoose.connection.on('disconnected', function () {
-    console.log('Mongoose bağlantısı kesildi.\n');
+    console.log('\nMongoose bağlantısı kesildi.');
 });
 
 kapat = function (msg, callback) {
