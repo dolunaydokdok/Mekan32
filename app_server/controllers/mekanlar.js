@@ -8,7 +8,7 @@ var footer = "Dolunay Dökdök 2021"
 var mesafeyiFormatla = function (mesafe) {
 	var yeniMesafe, birim;
 	if (mesafe > 1000) {
-		yeniMesafe = parseFloat(mesafe / 100).toFixed(1);
+		yeniMesafe = parseFloat(mesafe / 1000).toFixed(2);
 		birim = ' km';
 	} else {
 		yeniMesafe = parseFloat(mesafe).toFixed(1);
@@ -30,7 +30,7 @@ var anaSayfaOlustur = function (req, res, cevap, mekanListesi) {
 	}
 	res.render('mekanlar-liste',
 		{
-			baslik: 'Mekan32',
+			title: 'Mekan32',
 			sayfaBaslik: {
 				siteAd: 'Mekan32',
 				aciklama: 'Isparta Civarındaki Mekanları Keşfedin!'
@@ -76,33 +76,34 @@ const anaSayfa = function (req, res, next) {
 var detaySayfasiOlustur = function (req, res, mekanDetaylari) {
 	res.render('mekan-detay',
 		{
-			baslik: mekanDetaylari.ad,
-			footer:footer,
+			title: mekanDetaylari.ad,
+			footer: footer,
 			sayfaBaslik: mekanDetaylari.ad,
 			mekanBilgisi: mekanDetaylari
 		});
 }
 
 var hataGoster = function (req, res, durum) {
-	var baslik, icerik;
+	var title, icerik;
 	if (durum == 404) {
-		baslik = "404, Sayfa Bulunamadı!";
+		title = "404, Sayfa Bulunamadı!";
 		icerik = "Kusura bakmayın sayfayı bulamadık!";
 	}
 	else {
-		baslik = durum + ", Bir şeyler ters gitti!";
+		title = durum + ", Bir şeyler ters gitti!";
 		icerik = "Ters giden bir şey var!";
 	}
 	res.status(durum);
 	res.render('hata', {
-		baslik: baslik,
-		icerik: icerik
+		title: title,
+		icerik: icerik,
+		footer: footer
 	});
 };
 
 var mekanBilgisi = function (req, res, callback) {
 	istekSecenekleri = {
-		url : apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
+		url: apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
 		method: "GET",
 		json: {}
 	};
@@ -125,7 +126,10 @@ var mekanBilgisi = function (req, res, callback) {
 }
 
 const yorumEkle = function (req, res, next) {
-	res.render('yorum-ekle', { title: 'Yorum Ekle', 'footer': 'Dolunay Dökdök 2020' });
+	res.render('yorum-ekle', {
+		title: 'Yorum Ekle',
+		'footer': footer
+	});
 }
 
 module.exports = {

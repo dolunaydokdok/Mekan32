@@ -19,11 +19,12 @@ const mekanlariListele = async (req, res) => {
 	var geoOptions = {
 		distanceField: "mesafe",
 		spherical: true,
-		key: "koordinatlar"
+		key: "koordinatlar",
+		maxDistance: 20000
 	};
 	if (!enlem || !boylam) {
 		cevapOlustur(res, 404, {
-			"mesaj": "enlem ve boylam zounlu parametreler"
+			"mesaj": "enlem ve boylam zorunlu parametreler"
 		});
 		return;
 	}
